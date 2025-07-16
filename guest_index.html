@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+  <title>index</title>
+</head>
+<style>
+  *{ padding:0;
+    margin:0;
+    }
+  .nav_bar{
+    height:86px;
+    width:100%;
+    background-color: antiquewhite;
+    color:black;
+    display:flex;
+    justify-content: space-between;
+
+    align-items: center;
+    border:none;
+    text-decoration: none;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+
+  }
+  .login_btn{
+    background-color: #04AA6D;
+    color: white;
+    height: 55px;
+    padding: 12px 32px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 25px;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+
+
+   &:hover {
+   background-color: #038e5a;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+   }
+  }
+  .about_big{
+    height: 550px;
+    background-color: #038e5a;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .about {
+  max-width: 600px;
+  margin-left:50px;
+  align-self: center;
+  background: #fff8ee;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 36px 32px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #204060;
+}
+
+.about h3 {
+  font-size: 2rem;
+  color: #04AA6D;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+
+}
+
+.about p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 0;
+}
+.mission-section {
+  height:580px;
+  background:#038e5a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mission-sec {
+  max-width: 600px;
+  margin-bottom: 20px;
+  margin-right:50px;
+  align-self: flex-end;
+  background: #fff8ee;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 36px 32px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #204060;
+}
+
+.mission-sec h3 {
+  font-size: 2rem;
+  color: #04AA6D;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+
+}
+
+.mission-sec p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 0;
+}
+.feature{
+  height: 250px;
+  background-color: #038e5a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.feature-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 2rem 1.5rem;
+    flex: 1 1 250px;
+    min-width: 220px;
+    max-width: 320px;
+    text-align: center;
+}
+
+.contact-blue-box {
+  width:100%;
+  background: #003097; /* A nice blue shade */
+  color: #fff;
+  font-family: 'Poppins', Arial, sans-serif;
+  align-items: center;
+}
+
+.contact-blue-box h3 {
+  font-size: 1.7rem;
+  margin-bottom: 18px;
+  margin-left:10px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.contact-blue-box p {
+  margin: 10px ;
+  margin-left:10px;
+  font-size: 1.07rem;
+  line-height: 1.5;
+}
+
+</style>
+<body>
+  <div class="nav_bar">
+    <img src='{{url_for("static" ,filename="image/logo.png")}}' height="80px" style="margin-left:18px ; border-radius: 15%; display: flex; align-self: center;">
+    <a href="{{url_for('login')}}"><button class='login_btn'>login</button></a>
+  </div>
+  <div class='about_big'>
+  <div class="about">
+    <h3><b>About Us</b></h3>
+    <br>
+    <br>
+       <p>Welcome to <b>SpotX</b>—your smart solution for hassle-free parking!
+       Founded with a vision to revolutionize urban mobility, <b>SpotX</b> 
+       is dedicated to making parking simple, efficient, and 
+       stress-free. We understand the frustration of circling blocks
+       in search of a parking spot, wasting precious time and fuel. 
+       That’s why we created <b>SpotX</b>: a platform designed to connect 
+       drivers with available parking spaces in real-time, whether 
+       you’re heading to work, shopping, or exploring the city.
+       </p>
+   </div>
+    <img src="{{url_for('static' , filename='image/guest_index_founder.png')}}" height="550px" style="align-self: flex-end;  border-bottom-left-radius: 20%;  border-top-left-radius: 20%; ">
+  </div>
+  <div class="mission-section" >
+     <img src="{{url_for('static',filename='image/our_mission.png')}}"  height="550px" style="align-self: flex-start;  border-bottom-right-radius: 20%;  border-top-right-radius: 20%; margin-top: 10px;">
+     <div class="mission-sec">
+       <h3><b>OUR MISSION</b></h3>
+       <br>
+       <br>
+         <p>
+          At <b>SpotX</b>, our mission is to transform the way people find and book parking. We are committed to making urban mobility smoother, greener, and more convenient for everyone. By harnessing technology, we aim to eliminate the stress and uncertainty of searching for parking spaces, saving drivers valuable time and reducing traffic congestion in our cities.<br><br>
+          <b>SpotX</b> stands for innovation, reliability, and customer satisfaction. We are passionate about creating smart solutions that make everyday life better—for individuals, communities, and the planet.
+         </p>  
+     </div>
+    </div>
+
+  <div class="feature">
+    
+    <div class="feature-card">
+      <img src="https://img.icons8.com/ios-filled/100/2d3e50/parking.png" alt="Easy Booking">
+      <h3>Easy Booking</h3>
+      <p>Reserve your parking spot in just a few clicks. No more circling around for hours!</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://img.icons8.com/ios-filled/100/2d3e50/marker" alt="Prime Locations">
+      <h3>Prime Locations</h3>
+      <p>Choose from hundreds of locations across the city, close to your destination.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://img.icons8.com/ios-filled/100/2d3e50/lock-2.png" alt="Secure Payments">
+      <h3>Secure Payments</h3>
+      <p>Pay online securely and get instant confirmation for your booking.</p>
+    </div>
+  </div>
+   <div class="contact-blue-box">
+  <h3>Contact Us</h3>
+  <p><b>Customer Support:</b> +91 98765 43210</p>
+  <p><b>Business Inquiries:</b> +91 91234 56789</p>
+  <p><b>Email:</b> support@spotx.com</p>
+  <p><b>Headquarters:</b> SpotX Technologies Pvt. Ltd.,<br>
+     2nd Floor, Tech Park,<br>
+     Main Road, Kasaragod,<br>
+     Kerala, 671121, India
+  </p>
+  <p><b>Working Hours:</b> Monday - Saturday, 9:00 AM to 7:00 PM</p>
+<p style=" color:#fff; text-align:center;  font-family:'Poppins', Arial, sans-serif; font-size:1rem;">
+  &copy; 2025      SpotX.   Made by THANISH
+ </p>
+ </div>
+
+</body>
+</html>

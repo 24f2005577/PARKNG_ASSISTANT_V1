@@ -1,0 +1,46 @@
+{% extends 'base2.html' %}
+{% block title %}
+SIGN UP PAGE
+{%endblock%}
+{% block formname %} 
+SIGN UP
+{%endblock%}
+{% block form %}
+<form method="post">
+   {{ form.hidden_tag() }}
+  <div>
+    {{form.email.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.email(size=40,placeholder='EMAIL')}}
+  </div>
+  <div>
+    {{form.phone.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.phone(size=40,placeholder='PHONE NO')}}
+  </div>
+  <div>
+    {{form.username.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.username(size=40,placeholder='USERNAME')}}
+  </div>
+  <div>
+    {{form.password1.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.password1(size=40,placeholder='PASSWORD')}}
+  </div>
+  <div>
+    {{form.password2.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.password2(size=40,placeholder='CONFIRM PASSWORD')}}
+  </div>
+  <br>
+  <br>
+  <div>
+    {{form.submit(size=40 ,class='btn btn-lg btn-primary',style=' display:flex; justify-self:center;')}}
+  </div>
+
+  </form>
+  <br>
+  
+{%endblock%}
+{% block redirect %}
+<h4 style="font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Courier New', monospace;">
+  ALREADY HAVE A ACCOUNT?<br>
+  <a href="{{url_for('login')}}" style="display:flex; align-self: center; justify-self:center;"> LOGIN</a>
+</h4>
+{%endblock%}

@@ -1,0 +1,35 @@
+{% extends 'base2.html' %}
+{% block title %}
+LOGIN PAGE
+{%endblock%}
+{% block formname %} 
+LOGIN
+{%endblock%}
+{% block form %}
+<form method="post">
+   {{ form.hidden_tag() }}
+  <div>
+    {{form.username.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.username(size=40,placeholder='USERNAME')}}
+  </div>
+  <div>
+    {{form.password.label(style='font-weight:600; display:flex; justify-self:center;')}}
+    {{form.password(size=40,placeholder='PASSWORD')}}
+  </div>
+  <br>
+  <br>
+  <div>
+    {{form.submit(size=40 ,class='btn btn-lg btn-primary',style=' display:flex; justify-self:center;')}}
+  </div>
+  <br>
+</form>
+
+{%endblock%}
+{% block redirect %}
+<h4 style="font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Courier New', monospace;">
+  DON'T HAVE AN ACCOUNT?
+  <a href="{{url_for('register')}} " style="display:flex; align-self: center; justify-self:center; ">
+    SIGN UP
+  </a>
+</h4>
+{%endblock%}
