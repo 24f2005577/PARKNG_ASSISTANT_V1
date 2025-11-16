@@ -1,0 +1,26 @@
+{% extends "base_user.html" %}
+
+{% block title %}Update User{% endblock %}
+
+
+{% block content %}
+  <div style="background-image: url('{{url_for( 'static' ,  filename='image/login_page_bg.png')}}'); min-height:91.5vh; background-size:cover;background-repeat:no-repeat;display:flex;align-items:center;justify-content:center;">
+    <div style="background-color: aliceblue;padding: 20px; min-width: 400px; border-color: blue; border-radius: 15%; border-style: double; align-items: center;justify-items: center;">
+    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 900;"><strong>UPDATE USER</strong></h1>
+    <form method="POST" action="{{ url_for('edit_user') }}">
+        {{ form.hidden_tag() }}
+        {{ form.username.label(style='font-weight:900; display:flex; justify-self:center;') }}{{ form.username(size=26, placeholder="Username" ,style="border-radius:5%;") }}
+        {{ form.email.label(style='font-weight:900; display:flex; justify-self:center;') }}{{ form.email(size=26, placeholder="Email" ,style="border-radius:5%;") }}
+        {{ form.phone_number.label(style='font-weight:900; display:flex; justify-self:center;') }}{{ form.phone_number(size=26, placeholder="Phone Number" ,style="border-radius:5%;") }}
+        {{ form.address.label(style='font-weight:900; display:flex; justify-self:center;') }}{{ form.address(size=26, placeholder="Address" ,style="border-radius:5%;") }}
+        {{ form.pincode.label(style='font-weight:900; display:flex; justify-self:center;') }}{{ form.pincode(size=26, placeholder="Pincode" ,style="border-radius:5%;") }}
+        {{ form.password.label(style='font-weight:900; display:flex; justify-self:center;') }}{{ form.password(size=26, placeholder="Password" ,style="border-radius:5%;") }}
+        {{ form.confirm_password.label(style='font-weight:900; display:flex; justify-self:center;') }}{{ form.confirm_password(size=26, placeholder="Confirm Password" ,style="border-radius:5%;") }}
+        <br>
+        <br>
+        {{ form.submit(size=32 ,class='btn btn-lg btn-success',style=' display:flex; justify-self:center;') }}
+    </form>
+    </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,116 @@
+{% extends "base_admin.html" %}
+{% block title %} ADMIN SUMMARY {% endblock %}
+{% block content %}
+   <div>
+    <h2 style="display:flex;justify-self: center; margin-top: 10px;"><strong>ADMIN SUMMARY</strong></h2>
+    <div style="display:flex; justify-content: center; margin-top: 20px;">
+        <div style="min-width: 600px ;margin: auto;">
+            <canvas id="bookings_per_lot"></canvas>
+        </div>
+        <div style="min-width:800px; margin: auto;">
+            <canvas id="revenue_per_lot"></canvas>
+        </div>
+    </div>
+    <div style="display:flex; justify-content: center; margin-top: 20px;">
+        <div style="min-width: 600px; margin: auto;">
+            <canvas id="pieoccupy"></canvas>
+        </div>
+        <div style="min-width: 600px; margin: auto;">
+            <canvas id="user_spends"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div>
+        <script>
+            const ctx1 = document.getElementById('bookings_per_lot').getContext('2d');
+            const ctx2 = document.getElementById('revenue_per_lot').getContext('2d');
+            const ctx3 = document.getElementById('pieoccupy').getContext('2d');
+            const ctx4 = document.getElementById('user_spends').getContext('2d');
+
+        // Bookings per Lot
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: {{ lot_labels|tojson }},
+                datasets: [{
+                    label: 'Bookings per Lot',
+                    data: {{ bookings_per_lot|tojson }},
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Revenue per Lot
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: {{ lot_labels|tojson }},
+                datasets: [{
+                    label: 'Revenue per Lot',
+                    data: {{ revenue_per_lot|tojson }},
+                    backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Pie Chart for Occupied vs Vacant Spots
+        new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Vacant', 'Occupied'],
+                datasets: [{
+                    label: 'Vacant vs Occupied Spots',
+                    data: {{ pieoccupy|tojson }},
+                    backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        // User Spending Chart
+        new Chart(ctx4, {
+            type: 'bar',
+            data: {
+                labels: {{ user_label|tojson }},
+                datasets: [{
+                    label: 'User Spending',
+                    data: {{ user_spends|tojson }},
+                    backgroundColor: 'rgba(255, 159, 64, 0.6)',
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        </script>
+        </div>
+{% endblock %}

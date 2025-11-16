@@ -1,0 +1,19 @@
+{% extends 'base_login.html' %}
+{% block title %}
+LOGIN PAGE
+{%endblock%}
+{% block formname %} 
+<strong>BILL</strong>
+{%endblock%}
+{% block form %}
+
+<br>
+<p><strong>Booking ID:</strong> {{ book.id }}</p>
+<p><strong>Lot Name:</strong> {{ book.spot.lot.name }}</p>
+<p><strong>Spot ID:</strong> {{ book.spot.spot_id }}</p>
+<p><strong>Vehicle Number:</strong> {{ book.vehicle_number }}</p>
+<p><strong>Start Time:</strong> {{ book.start_time }}</p>
+<p><strong>End Time:</strong> {{ book.end_time }}</p>
+<p><strong>Total Amount:</strong> ₹{{ book.total_amount }}</p>
+<br>
+{%endblock%}

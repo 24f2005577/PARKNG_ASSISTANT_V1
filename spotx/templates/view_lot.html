@@ -1,0 +1,44 @@
+{% extends 'base_admin.html' %}
+
+{% block title %}View Lot{% endblock %}
+
+{% block content %}
+    <h1 style="font-size:1cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display: flex; justify-self: center;"><strong>Lot Details</strong></h1>
+    <form method="POST" action="{{ url_for('view_lot' , encrypt=request.args.get('encrypt') ) }}">
+        {{ form.hidden_tag() }}
+        <br>
+          <form method="POST" action="{{ url_for('view_lot' , encrypt=request.args.get('encrypt') ) }}">
+        {{ form.hidden_tag() }}
+
+        {{ form.name.label(style="font-weight:900; font-size:0.8cm;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:flex; justify-self:center;") }} {{ form.name(size=30,style="height:1cm;  display:flex; justify-self:center;border-radius:5%;") }}
+        {{ form.no_of_spots.label(style="font-weight:900;font-size:0.8cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:flex; justify-self:center;") }} {{ form.no_of_spots(size=30,style="height:1cm; display:flex; justify-self:center;border-radius:4%;") }}
+        {{ form.address.label(style="font-weight:900; font-size:0.8cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:flex; justify-self:center;") }} {{ form.address(size=30,style="height:1cm; display:flex; justify-self:center;border-radius:5%;") }}
+        {{ form.pincode.label(style="font-weight:900; font-size:0.8cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:flex; justify-self:center;") }} {{ form.pincode(size=30,style="height:1cm; display:flex; justify-self:center;border-radius:5%;") }}
+        {{ form.des.label(style="font-weight:900; font-size:0.8cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:flex; justify-self:center;") }} {{ form.des(size=90,style="width:8cm;display:flex; justify-self:center;border-radius:5%;") }}
+
+        {{ form.location.label(style="font-weight:900; font-size:0.8cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:flex; justify-self:center;") }} {{ form.location(size=30,style="height:1cm; display:flex; justify-self:center;border-radius:5%;") }}
+        {{ form.price_per_hour.label(style="font-weight:900; font-size:0.8cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:flex; justify-self:center;") }} {{ form.price_per_hour(size=30, style="height:1cm;display:flex; justify-self:center;border-radius:5%;") }}
+         <br>
+
+        {{ form.submit(size=40 ,class='btn btn-lg btn-primary',style=' display:flex; justify-self:center;') }}
+        <br>
+        <br>
+         
+
+        </form>
+        <h1 style="font-size:1cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display: flex; justify-self: center;"><strong>ADD SPOTS</strong></h1>
+
+        <form method="POST" action="{{ url_for('add_spot', encrypt=request.args.get('encrypt')) }}">
+            {{ spoter.hidden_tag() }}
+            {{ spoter.num_spots.label(style="font-weight:900; font-size:0.8cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:flex; justify-self:center;") }} {{ spoter.num_spots(size=30,style="height:1cm; display:flex; justify-self:center;border-radius:5%;") }}
+          <br>
+            {{ spoter.submit(size=40 ,class='btn btn-lg btn-primary',style=' display:flex; justify-self:center;') }}
+
+        </form>
+        <br>
+        <br>
+        <br>
+       <a href="{{ url_for('delete_lot', encrypt=request.args.get('encrypt')) }}"  style="display:flex; justify-content:center; justify-self:center; text-decoration: none;"><button style="font-size:50px" class="btn btn-danger btn-lg">Delete Lot</button></a>
+       {% endblock %}
+        <br>
+        <br>

@@ -1,0 +1,26 @@
+
+{% extends "base_user.html" %}
+{% block title %}Release Booking{% endblock %}
+{% block content %}
+<div style="justify-self: center;  width: 400px; background-color: aliceblue; border-radius: 15%;border-style: outset; padding: 10px; margin-top: 19vh;">
+   <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <h2 style="font-size:1cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><strong>Release Booking</strong></h2>
+    </div>
+    <br>
+        <div>
+        <h3 ><strong>Booking ID:</strong> {{ book.id }}</h3>
+        <p><strong>Lot Name:</strong> {{ book.spot.lot.name }}</p>
+        <p><strong>Spot ID:</strong> {{ book.spot.spot_id }}</p>
+        <p><strong>Vehicle Number:</strong> {{ book.vehicle_number }}</p>
+        <p><strong>Start Time:</strong> {{ book.start_time }}</p>
+        <p><strong>End Time:</strong> {{ book.end_time }}</p>
+        <p><strong>Total Amount:</strong> ₹{{ book.total_amount }}</p>
+    </div>
+    <div style="display:flex; justify-content:center;">
+        <form method="POST" action="{{ url_for('ended_booking', encrypt=book.encrypted_id) }}">
+            {{ form.hidden_tag() }}
+            {{ form.submit(size=32, class="btn btn-success btn-lg") }}
+        </form>
+    </div>
+    </div>
+{% endblock %}

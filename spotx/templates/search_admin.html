@@ -1,0 +1,23 @@
+{% extends "base_admin.html" %}
+{% block title %}Admin Search{% endblock %}
+
+
+{% block content %}
+    <h1><strong>ADMIN SEARCH</strong></h1>
+    <form method="POST" action="{{ url_for('search_admin') }}">
+        {{ form.hidden_tag() }}
+        
+        <div>
+
+            {{ form.category.label(style="font-weight:900; font-family: Arial, sans-serif; margin-left:10px;")}}<tab>  </tab>{{ form.category(style='margin-right:5px;' ) }}
+        </div>
+        <div>
+            {{ form.search.label(style="font-weight:900; font-family: Arial, sans-serif; margin-left:10px;") }}<tab>  </tab> {{ form.search(size=32, style="margin-right:5px;", placeholder="Search") }}
+        </div>
+        <br>
+        <div>
+            {{ form.submit(size=32, class="btn btn-primary btn btn-lg", style="margin-left: 20px;") }}
+        </div>
+    </form>
+    <br>
+{% endblock %}

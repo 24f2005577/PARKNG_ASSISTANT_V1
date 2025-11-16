@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpotX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+     *{
+        margin:0;
+        padding:0;
+     }
+     .nav{
+       height: 75px;
+       background-color: #f3c4c4;
+       display:flex;
+     }
+     .nav_logo{
+        height:65px;
+        margin-top: 5px;
+        margin-bottom:5px;
+        
+     }
+     .login_button{
+        height:65px;
+        margin-top: 5px;
+        margin-bottom:5px;
+        width:100px;
+        margin-left:1450px;
+     }
+     .about{
+        display:inline-block;    
+        height:600px;
+        background-color: #01ff0dab;
+        font-size: large;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 700;
+     }
+     
+         
+     .contact-blue-box {
+     width:100%;
+     background: #003097; /* A nice blue shade */
+     color: #fff;
+     font-family: 'Poppins', Arial, sans-serif;
+     align-items: center;
+     }
+
+     .contact-blue-box h3 {
+     font-size: 1.7rem;
+     margin-bottom: 18px;
+     margin-left:10px;
+     letter-spacing: 1px;
+     color: #fff;
+     } 
+
+     .contact-blue-box p {
+      margin: 10px ;
+      margin-left:10px;
+      font-size: 1.07rem;
+      line-height: 1.5;
+     }
+    </style>
+    </head>
+    <body>
+      <div class="nav">
+       <img src="{{url_for('static' ,filename='image/logo.png')}}" class="nav_logo">
+       <a href="{{url_for('login')}}"><button class='btn btn-success btn-lg login_button'>LOGIN</button></a> 
+      </div>
+    <div class="about">
+      <div>
+        <h1 style="font-size: x-large; font-weight: 900; text-decoration: double; margin-left: 300px; margin-top: 10px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 3cm;">Welcome to SpotX   </h1>
+      </div>
+      <div style="display:flex">
+        <br>
+        <br>
+         <p style="margin-left: 10px; margin-top: 10px; font-size: 1cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 700;">
+            SpotX is your ultimate parking solution, designed to simplify your parking experience. Whether you're looking for a spot in a busy city or a quiet neighborhood, SpotX has got you covered. With our user-friendly interface, you can easily find, book, and manage your parking spots with just a few clicks.
+         </p>
+         <img src="{{url_for('static' ,filename='image/logo.png')}}" style="width: 500px; background:whitesmoke;padding: 10px;border-bottom-left-radius: 15%;border-top-left-radius: 15%; margin-left: 100px; margin-top: 0px;">
+      </div>
+    </div>
+    
+    <div class="contact-blue-box">
+    <h3>Contact Us</h3>
+    <p><b>Customer Support:</b> +91 98765 43210</p>
+    <p><b>Business Inquiries:</b> +91 91234 56789</p>
+    <p><b>Email:</b> support@spotx.com</p>
+    <p><b>Headquarters:</b> SpotX Technologies Pvt. Ltd.,<br>
+     2nd Floor, Tech Park,<br>
+     Main Road, Kasaragod,<br>
+     Kerala, 671121, India
+    </p>
+    <p><b>Working Hours:</b> Monday - Saturday, 9:00 AM to 7:00 PM</p>
+    <p style=" color:#fff; text-align:center;  font-family:'Poppins', Arial, sans-serif; font-size:1rem;">
+    &copy; 2025      SpotX.   Made by THANISH
+    </p>
+    </div>
+    </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

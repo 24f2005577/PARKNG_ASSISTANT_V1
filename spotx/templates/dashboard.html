@@ -1,0 +1,74 @@
+{% extends "base_user.html" %}
+{% block title %}User Dashboard{% endblock %}
+{% block content %}
+    <div >
+        <h2 style="font-size:1cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display: flex; justify-self: center;"><strong>History</strong></h2>
+    </div>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Lot</th>
+                <th>Spot name</th>
+                <th>Vehicle Number</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+             {% for booking in bookd %}
+        <tr>
+            <td>{{ booking.spot.lot.name }}</td>
+            <td>{{ booking.spot.spot_id }}</td>
+            <td>{{ booking.vehicle_number }}</td>
+            <td>{{ booking.start_time }}</td>
+            {% if booking.end_time %}
+            <td>{{ booking.end_time }}</td>
+            <td> <a href="{{url_for('bill',encrypt=booking.encrypted_id)}}" ><button class="btn btn-primary ">SEE BILL</button></a></td>
+            {% else %}
+            <td>Not Ended</td>
+            <td> <form method="POST" action="{{ url_for('end_booking_route', encrypt=booking.encrypted_id) }}">
+                {{ form1.hidden_tag() }}
+                {{ form1.submit(size=32 ,class="btn btn-danger")}}
+            </form></td>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+    </table>
+     
+    <br>
+    <br>
+    <div>
+        <h2 style="font-size:1cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display: flex; justify-self: center;"><strong>Search Parking Lots</strong></h2>
+    </div>
+    <div style="display: flex; justify-content: center;">
+    <form method="POST" action="{{ url_for('dashboard') }}">
+        {{ form.hidden_tag() }}
+
+        {{ form.category.label(style="font-weight:900; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;")}} {{ form.category() }}
+        {{ form.search.label(style="font-weight:900; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;")}} {{ form.search(size=32, placeholder="Search") }}
+        {{ form.submit(size=32, class="btn btn-info btn-outline-light") }}
+    </form>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content: center;">
+    {%for lot in results %}
+        
+       <div style="border: 1px solid #ccc; padding: 20px; margin: 10px; border-radius: 8px; width:400px;background-color: #f9f9f9;">
+            <h3>{{ lot.name }}</h3>
+            <p>Location: {{ lot.location }}</p>
+            <p>Number of Spots: {{ lot.no_of_spots }}</p>
+            <p>Description: {{ lot.description }}</p>
+            <p>Address: {{ lot.address }}</p>
+            <p>Pincode: {{ lot.pincode }}</p>
+
+            <p>Price per hour: ₹{{ lot.price_per_hour }}</p>
+            
+            <a href="{{url_for('book_spot_route',encrypt=lot.encrypted_id)}}">Book Spot</a>
+           
+        </div>
+    {% endfor %}
+    </div>
+
+    
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base_admin.html" %}
+
+{% block title %}USERS{% endblock %}
+
+{% block content %}
+    <h1 style="font-size:1cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; justify-self: center;"><strong>User List</strong></h1>
+
+    <table class="table table-borderless table-hover" >
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Pin Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone_number }}</td>
+                <td>{{ user.pincode }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+     </table>
+  
+{% endblock %}

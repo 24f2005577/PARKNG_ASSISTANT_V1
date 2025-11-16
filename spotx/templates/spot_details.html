@@ -1,0 +1,19 @@
+{% extends 'base_admin.html' %}
+{% block title %}SPOT  DETAILS{% endblock %}
+{% block content %}
+<div style="background-image: url('{{url_for( 'static' ,  filename='image/login_page_bg.png')}}'); min-height:91.5vh; background-size:cover;background-repeat:no-repeat;display:flex;align-items:center;justify-content:center;">
+    <div style="background-color: aliceblue; min-width: 400px; border-color: blue; border-radius: 15%; border-style: double; align-items: center;justify-items: center;">
+    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 900;">BOOKING INFO</h1>
+    <p><strong>USER ID:</strong> {{history.parker.id}}</p>
+    <p><strong>USERNAME:</strong> {{ history.parker.username }}</p>
+    <p><strong>EMAIL:</strong> {{ history.parker.email }}</p>
+    <p><strong>PHONE:</strong> {{ history.parker.phone_number}}</p>
+    <p><strong>SPOT ID:</strong> {{ history.spot.id }}</p>
+    <p><strong>LOT ID:</strong> {{ history.spot.lot.id }}</p>
+    <p><strong>LOT NAME:</strong> {{ history.spot.lot.name }}</p>
+    <p><strong>LOT PINCODE:</strong>{{history.spot.lot.pincode}}</p>
+    <p><strong>START TIME:</strong> {{ history.start_time }}</p>
+    </div>
+</div>
+
+{% endblock %}

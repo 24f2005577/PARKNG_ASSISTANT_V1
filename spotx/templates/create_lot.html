@@ -1,0 +1,50 @@
+{% extends "base_login.html" %}
+{% block title %}
+Create Lot
+{% endblock %}
+{% block form %}
+    <div>
+        <form method="POST" action="{{url_for('create_lot_route')}}" >
+            {{form.hidden_tag()}}
+            <div display="flex" justify-content="center" style="display:flex; justify-content:center; align-items:center; flex-direction:column;"> 
+            {{form.name.label(style='font-weight:600;  display:flex; justify-self:center;')}} {{form.name(size=40, placeholder="Lot Name", style='border-radius: 5px;')}}
+            </div>
+            <br>
+            <div>
+            {{form.no_of_spots.label(style='font-weight:600;  display:flex; justify-self:center;')}} {{form.no_of_spots(size=40, placeholder="Number of Spots" ,style='border-radius: 5px; display:flex; justify-self:center;')}}
+            </div>
+            <br>
+            <div>
+            {{form.description.label(style='font-weight:600;  display:flex; justify-self:center;')}} {{form.description( placeholder="Description" ,style='border-radius: 5px; display:flex; justify-self:center; width: 430px')}}
+            </div>
+            <br>
+            <div >
+            {{form.address.label(style='font-weight:600;  display:flex; justify-self:center;')}} {{form.address(size=40, placeholder="Address" ,style='border-radius: 5px; display:flex; justify-self:center;')}}
+            </div>
+            <br>
+            <div>
+            {{form.pincode.label(style='font-weight:600;  display:flex; justify-self:center;')}} {{form.pincode(size=40, placeholder="Pincode", style='border-radius: 5px; display:flex; justify-self:center;')}}
+            </div>
+            <br>
+            <div>
+            {{form.location.label(style='font-weight:600;  display:flex; justify-self:center;')}} {{form.location(size=40, placeholder="Location", style='border-radius: 5px; display:flex; justify-self:center;')}}
+            </div>
+            <br>
+            <div>
+            {{form.price_per_hour.label(style='font-weight:600;  display:flex; justify-self:center;')}} {{form.price_per_hour(size=40, placeholder="Price per Hour", style='border-radius: 5px; display:flex; justify-self:center;')}}
+            </div>
+            <br>
+            <br>
+            <div>
+                    {{form.submit(size=40 ,class='btn btn-lg btn-primary',style=' display:flex; justify-self:center;')}}
+                    <br>
+                    <br>
+                    <a href="{{url_for('admin_dashboard')}}" class="btn btn-primary btn-lg" style="display:flex; justify-self:center;">Back to Dashboard</a>
+            </div>
+            <br>
+            <br>
+
+        </form>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base_login.html' %}
+{% block title %}
+SIGN UP PAGE
+{%endblock%}
+{% block formname %} 
+SIGN UP
+{%endblock%}
+{% block form %}
+<form method="post" action="{{ url_for('register') }}">
+   {{ form.hidden_tag() }}
+  <div>
+    {{form.email.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.email(size=40,placeholder='EMAIL', style='border-radius: 5px;')}}
+  </div>
+    <br>
+  <div>
+    {{form.username.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.username(size=40,placeholder='USERNAME',style='border-radius: 5px;')}}
+  </div>
+  <br>
+    <div>
+        {{form.phone_number.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+        {{form.phone_number(size=40,placeholder='PHONE NUMBER',style='border-radius: 5px;')}}<br>
+    </div>
+    <br>
+    <div>
+        {{form.address.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+        {{form.address(size=40,placeholder='ADDRESS',style='border-radius: 5px;')}}<br>
+    </div>
+    <br>
+    <div>
+    {{form.pincode.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.pincode(size=40,placeholder='PIN CODE',style='border-radius: 5px;')}}
+    </div>
+    <br>
+  <div>
+    {{form.password.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.password(size=40,placeholder='PASSWORD', style='border-radius: 5px;')}}
+  </div>
+  <br>
+  <div>
+    {{form.confirm_password.label(style='font-weight:600;  display:flex; justify-self:center;')}}
+    {{form.confirm_password(size=40,placeholder='CONFIRM PASSWORD', style='border-radius: 5px;')}}
+  </div>
+  <br>
+
+  <br>
+  <div>
+    {{form.submit(size=40 ,class='btn btn-lg btn-success',style=' display:flex; justify-self:center;')}}
+  </div>
+
+  </form>
+  <br>
+  
+{%endblock%}
+{% block redirect %}
+<h4 style="font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Courier New', monospace;">
+  ALREADY HAVE A ACCOUNT?<br>
+  <a href="{{url_for('login')}}" style="display:flex; align-self: center; justify-self:center;"> LOGIN</a>
+</h4>
+{%endblock%}

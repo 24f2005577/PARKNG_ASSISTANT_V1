@@ -1,0 +1,30 @@
+
+<body>
+   
+</body>
+</html>
+
+
+{% extends "base_user.html" %}
+{% block title %}Release Booking{% endblock %}
+{% block content %}
+<div style="justify-self: center;  width: 400px; background-color: aliceblue; border-radius: 15%;border-style: outset; padding: 10px; margin-top: 19vh;">
+   <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <h2 style="font-size:1cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><strong>BOOK</strong></h2>
+    </div>
+    <br>
+      <form method="POST" action="{{ url_for('commit_book') }}">
+        {{ form.hidden_tag() }}
+        {{ form.spot_id.label(style="display:flex;justify-self:center;font-weight:800;") }} {{ form.spot_id(size=32, placeholder="Spot ID" ,style="display:flex;justify-self:center;border-radius:5%;padding:3px;") }}
+        {{ form.spot_name.label(style="display:flex;justify-self:center;font-weight:800;") }} {{ form.spot_name(size=32, placeholder="Spot Name" ,style="display:flex;justify-self:center;border-radius:5%;padding:3px;") }}
+        {{ form.lot_id.label(style="display:flex;justify-self:center;font-weight:800;") }} {{ form.lot_id(size=32, placeholder="Lot ID" ,style="display:flex;justify-self:center;border-radius:5%;padding:3px;") }}
+        {{ form.start_time.label(style="display:flex;justify-self:center;font-weight:800;") }} {{ form.start_time(size=32, placeholder="Start Time" ,style="display:flex;justify-self:center;border-radius:5%;padding:3px;") }}
+        {{ form.vehicle_number.label(style="display:flex;justify-self:center;font-weight:800;") }} {{ form.vehicle_number(size=32, placeholder="Vehicle Number" ,style="display:flex;justify-self:center;border-radius:5%;padding:3px;") }}
+        <br>
+        <br>
+        {{ form.submit(size=32, style="display:flex;justify-self:center;" ,class='btn btn-primary btn-lg') }}
+    </form>
+    <br>
+    <br>
+    </div>
+{% endblock %}

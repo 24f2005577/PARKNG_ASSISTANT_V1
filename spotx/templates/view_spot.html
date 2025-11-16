@@ -1,0 +1,31 @@
+{% extends 'base_admin.html' %}
+{% block title %}SPOT{% endblock %}
+{% block content %}
+<div style="background-image: url('{{url_for( 'static' ,  filename='image/login_page_bg.png')}}'); min-height:91.5vh; background-size:cover;background-repeat:no-repeat;display:flex;align-items:center;justify-content:center;">
+    <div style="background-color: aliceblue; min-width: 400px; border-color: blue; border-radius: 15%; border-style: double; align-items: center;justify-items: center;">
+    <h1 style="font-weight: 900;">Spot Details</h1>
+    <p><strong>SPOT ID:</strong> {{ spot.id}}</p>
+    <p><strong>SPOT NAME:</strong> {{ spot.spot_id}}</p>
+
+    <p><strong>LOT ID:</strong> {{ spot.lot_id }}</p>
+    {% if spot.is_occupied %}
+      <p><strong>STATUS:</strong> Occupied</p>
+      
+    <form method="POST" action="{{url_for('spot_details' , encrypt=spot.encrypted_id)}}">
+        {{form.hidden_tag()}}
+        {{form.submit(size=32, value="INFO" ,class="btn btn-info")}}
+    </form>
+    {% else %}
+        <p><strong>STATUS:</strong> Available</p>
+    {% endif %}
+    <div>
+    {% if not(spot.is_occupied) %}
+      <a href="{{url_for('delete_spot', encrypt=request.args.get('encrypt'))}}">Delete Spot</a>
+    {% endif %}
+    </div>
+    <br>
+    </div>
+
+</div> 
+    
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base_user.html" %}
+{% block title %}User Summary{% endblock %}
+{% block content %}
+    <h2 style="display:flex; justify-self: center;"><strong>USER SUMMARY OF {{current_user.username}}</strong></h2>
+<div style="display:flex; justify-content: center; margin-top: 20px;">
+<div style="width: 600px ;margin: auto;">
+  <canvas id="PIEchart"></canvas>
+</div>
+<div style="width:800px; margin: auto;">
+  <canvas id="BAR CHART"></canvas>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('BAR CHART');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: {{ labels|tojson }},
+      datasets: [{
+        label: 'BOOKINGS PER LOT',
+        data: {{ bookings_per_lot|tojson }},
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+<script >
+    const ctx2 = document.getElementById('PIEchart');
+
+const piedata = {
+  labels: {{ labels|tojson }},
+  datasets: [{
+    label: 'PRICE PER LOT',
+    data: {{ price_per_lot|tojson }},
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+};
+ new Chart(ctx2, {
+            type: 'pie',
+            data: piedata,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Price Distribution by Lot'
+                    }
+                }
+            }
+        });
+</script>
+
+{%endblock%}
